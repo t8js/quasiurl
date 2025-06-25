@@ -1,0 +1,30 @@
+{
+  "name": "quasiurl",
+  "version": "0.1.0",
+  "description": "URL for templating",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "npx npm-run-all clean -p compile compile-tests",
+    "clean": "node -e \"require('node:fs').rmSync('dist', {force: true, recursive: true});\"",
+    "compile": "npx esbuild index.ts --bundle --outdir=dist --platform=neutral",
+    "compile-tests": "npx esbuild tests.ts --bundle --outdir=dist --platform=neutral",
+    "prepublishOnly": "npm run build",
+    "preversion": "npx npm-run-all shape build test",
+    "shape": "npx codeshape",
+    "test": "node dist/tests.js"
+  },
+  "author": "axtk",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/axtk/quasiurl.git"
+  },
+  "keywords": [
+    "url",
+    "template"
+  ],
+  "devDependencies": {
+    "@types/node": "^24.0.4"
+  }
+}
