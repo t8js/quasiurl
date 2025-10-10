@@ -19,7 +19,17 @@ function createQuasiURL(url: string) {
   return new QuasiURL(url);
 }
 
-let url = createQuasiURL("/sections/:id");
+let url = createQuasiURL("/x");
+
+assert(url.origin === "");
+assert(url.pathname === "/x");
+assert(url.search === "");
+assert(url.hash === "");
+assert(url.href === "/x");
+assert(url.hostname === "");
+assert(url.protocol === "");
+
+url = createQuasiURL("/sections/:id");
 
 assert(url.origin === "");
 assert(url.pathname === "/sections/:id");
@@ -38,6 +48,16 @@ assert(url.hash === "");
 assert(url.href === "/x{/:name}");
 assert(url.hostname === "");
 assert(url.protocol === "");
+
+url = createQuasiURL("https://a.aa/x{/:name}");
+
+assert(url.origin === "https://a.aa");
+assert(url.pathname === "/x{/:name}");
+assert(url.search === "");
+assert(url.hash === "");
+assert(url.href === "https://a.aa/x{/:name}");
+assert(url.hostname === "a.aa");
+assert(url.protocol === "https:");
 
 url = createQuasiURL("/x?a=1&b=nnn#start");
 
