@@ -19,7 +19,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git://github.com/axtk/quasiurl.git"
+    "url": "git://github.com/t8js/quasiurl.git"
   },
   "keywords": [
     "url",
