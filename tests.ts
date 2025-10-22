@@ -29,6 +29,51 @@ assert(url.href === "/x");
 assert(url.hostname === "");
 assert(url.protocol === "");
 
+console.log("\nset pathname");
+url.pathname = "a/b";
+
+assert(url.origin === "");
+assert(url.pathname === "/a/b");
+assert(url.search === "");
+assert(url.hash === "");
+assert(url.href === "/a/b");
+assert(url.hostname === "");
+assert(url.protocol === "");
+
+console.log("\nset origin");
+url.origin = "https://a.aa";
+
+assert(url.origin === "https://a.aa");
+assert(url.pathname === "/a/b");
+assert(url.search === "");
+assert(url.hash === "");
+assert(url.href === "https://a.aa/a/b");
+assert(url.hostname === "a.aa");
+assert(url.protocol === "https:");
+
+console.log("\nreset origin, set search");
+url.origin = "";
+url.search = "x=1";
+
+assert(url.origin === "");
+assert(url.pathname === "/a/b");
+assert(url.search === "?x=1");
+assert(url.hash === "");
+assert(url.href === "/a/b?x=1");
+assert(url.hostname === "");
+assert(url.protocol === "");
+
+console.log("\nset href");
+url.href = "/x#intro";
+
+assert(url.origin === "");
+assert(url.pathname === "/x");
+assert(url.search === "");
+assert(url.hash === "#intro");
+assert(url.href === "/x#intro");
+assert(url.hostname === "");
+assert(url.protocol === "");
+
 url = createQuasiURL("/sections/:id");
 
 assert(url.origin === "");
@@ -48,6 +93,28 @@ assert(url.hash === "");
 assert(url.href === "/x{/:name}");
 assert(url.hostname === "");
 assert(url.protocol === "");
+
+console.log("\nupdate path template");
+url.pathname = "{/:name}";
+
+assert(url.origin === "");
+assert(url.pathname === "{/:name}");
+assert(url.search === "");
+assert(url.hash === "");
+assert(url.href === "{/:name}");
+assert(url.hostname === "");
+assert(url.protocol === "");
+
+console.log("\nset origin to path template");
+url.origin = "https://a.aa";
+
+assert(url.origin === "https://a.aa");
+assert(url.pathname === "{/:name}");
+assert(url.search === "");
+assert(url.hash === "");
+assert(url.href === "https://a.aa{/:name}");
+assert(url.hostname === "a.aa");
+assert(url.protocol === "https:");
 
 url = createQuasiURL("https://a.aa/x{/:name}");
 
@@ -77,6 +144,33 @@ assert(url.search === "");
 assert(url.hash === "");
 assert(url.href === "https://a.aa/chapter/1");
 assert(url.hostname === "a.aa");
+assert(url.host === "a.aa");
+assert(url.port === "");
+assert(url.protocol === "https:");
+
+console.log("\nset port");
+url.port = 123;
+
+assert(url.origin === "https://a.aa:123");
+assert(url.pathname === "/chapter/1");
+assert(url.search === "");
+assert(url.hash === "");
+assert(url.href === "https://a.aa:123/chapter/1");
+assert(url.hostname === "a.aa");
+assert(url.host === "a.aa:123");
+assert(url.port === "123");
+assert(url.protocol === "https:");
+
+url = createQuasiURL("https://a.aa:42/chapter/1");
+
+assert(url.origin === "https://a.aa:42");
+assert(url.pathname === "/chapter/1");
+assert(url.search === "");
+assert(url.hash === "");
+assert(url.href === "https://a.aa:42/chapter/1");
+assert(url.hostname === "a.aa");
+assert(url.host === "a.aa:42");
+assert(url.port === "42");
 assert(url.protocol === "https:");
 
 url = createQuasiURL("https://a.aa");
@@ -116,6 +210,28 @@ assert(url.pathname === "/x/y");
 assert(url.search === "?a=1");
 assert(url.hash === "");
 assert(url.href === "/x/y?a=1");
+assert(url.hostname === "");
+assert(url.protocol === "");
+
+console.log("\nURLSearchParams");
+url.search = new URLSearchParams({ n: "m" });
+
+assert(url.origin === "");
+assert(url.pathname === "/x/y");
+assert(url.search === "?n=m");
+assert(url.hash === "");
+assert(url.href === "/x/y?n=m");
+assert(url.hostname === "");
+assert(url.protocol === "");
+
+console.log("\n\"?\" as search");
+url.search = "?";
+
+assert(url.origin === "");
+assert(url.pathname === "/x/y");
+assert(url.search === "");
+assert(url.hash === "");
+assert(url.href === "/x/y");
 assert(url.hostname === "");
 assert(url.protocol === "");
 

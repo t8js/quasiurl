@@ -17,14 +17,14 @@ export class QuasiURL {
     return `${this.origin}${this.pathname}${this.search}${this.hash}`;
   }
   set href(value: string) {
-    let head = value.match(/^((\w+:)?\/\/([^/]+)(:(\d+))?)(\/.*|$)/);
-    let tail = value.match(/(\?[^#]+)(#.+)?$/);
+    let head = value.match(/^((\w+:)?\/\/([^/:]+)(:(\d+))?)(\/.*|$)/);
+    let tail = value.match(/(\?[^#]+)?(#.+)?$/);
 
     this.protocol = head?.[2] ?? "";
     this.hostname = head?.[3] ?? "";
     this.port = head?.[5] ?? "";
     this.pathname = value
-      .replace(/^(\w+:)?\/\/[^/]+(:\d+)?/, "")
+      .replace(/^(\w+:)?\/\/[^/:]+(:\d+)?/, "")
       .replace(/\?.*$/, "")
       .replace(/#.*$/, "");
     this.search = tail?.[1] ?? "";
@@ -42,7 +42,7 @@ export class QuasiURL {
   set hostname(value: string) {
     if (!value.includes("/")) this._hostname = value;
   }
-  get port() {
+  get port(): string {
     return this._port;
   }
   set port(value: string | number) {
@@ -73,7 +73,7 @@ export class QuasiURL {
   set pathname(value: string) {
     this._pathname = value;
   }
-  get search() {
+  get search(): string {
     return this._search && `?${this._search}`;
   }
   set search(value: string | URLSearchParams) {
