@@ -17,18 +17,13 @@ export class QuasiURL {
     return `${this.origin}${this.pathname}${this.search}${this.hash}`;
   }
   set href(value: string) {
-    let head = value.match(/^((\w+:)?\/\/([^/:]+)(:(\d+))?)(\/.*|$)/);
-    let tail = value.match(/(\?[^#]+)?(#.+)?$/);
+    let origin = value.match(/^(\w+:)?\/\/[^/:]+(:\d+)?/)?.[0] ?? "";
+    let tail = value.slice(origin.length).match(/^([^\?#]+)?(\?[^#]+)?(#.+)?$/) ?? [];
 
-    this.protocol = head?.[2] ?? "";
-    this.hostname = head?.[3] ?? "";
-    this.port = head?.[5] ?? "";
-    this.pathname = value
-      .replace(/^(\w+:)?\/\/[^/:]+(:\d+)?/, "")
-      .replace(/\?.*$/, "")
-      .replace(/#.*$/, "");
-    this.search = tail?.[1] ?? "";
-    this.hash = tail?.[2] ?? "";
+    this.origin = origin;
+    this.pathname = tail[1] ?? "";
+    this.search = tail[2] ?? "";
+    this.hash = tail[3] ?? "";
   }
   get protocol() {
     return this._protocol;
