@@ -224,7 +224,7 @@ assert(url.href === "/x/y?n=m");
 assert(url.hostname === "");
 assert(url.protocol === "");
 
-console.log("\n\"?\" as search");
+console.log('\n"?" as search');
 url.search = "?";
 
 assert(url.origin === "");
