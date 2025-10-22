@@ -18,7 +18,8 @@ export class QuasiURL {
   }
   set href(value: string) {
     let origin = value.match(/^(\w+:)?\/\/[^/:]+(:\d+)?/)?.[0] ?? "";
-    let tail = value.slice(origin.length).match(/^([^\?#]+)?(\?[^#]+)?(#.+)?$/) ?? [];
+    let tail =
+      value.slice(origin.length).match(/^([^?#]+)?(\?[^#]+)?(#.+)?$/) ?? [];
 
     this.origin = origin;
     this.pathname = tail[1] ?? "";
