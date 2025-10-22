@@ -82,40 +82,40 @@ assert(url.protocol === "https:");
 url = createQuasiURL("https://a.aa");
 
 assert(url.origin === "https://a.aa");
-assert(url.pathname === "");
+assert(url.pathname === "/");
 assert(url.search === "");
 assert(url.hash === "");
-assert(url.href === "https://a.aa");
+assert(url.href === "https://a.aa/");
 assert(url.hostname === "a.aa");
 assert(url.protocol === "https:");
 
 url = createQuasiURL("");
 
 assert(url.origin === "");
-assert(url.pathname === "");
+assert(url.pathname === "/");
 assert(url.search === "");
 assert(url.hash === "");
-assert(url.href === "");
+assert(url.href === "/");
 assert(url.hostname === "");
 assert(url.protocol === "");
 
 url = createQuasiURL("?x=321&y=567#start");
 
 assert(url.origin === "");
-assert(url.pathname === "");
+assert(url.pathname === "/");
 assert(url.search === "?x=321&y=567");
 assert(url.hash === "#start");
-assert(url.href === "?x=321&y=567#start");
+assert(url.href === "/?x=321&y=567#start");
 assert(url.hostname === "");
 assert(url.protocol === "");
 
 url = createQuasiURL("x/y?a=1");
 
 assert(url.origin === "");
-assert(url.pathname === "x/y");
+assert(url.pathname === "/x/y");
 assert(url.search === "?a=1");
 assert(url.hash === "");
-assert(url.href === "x/y?a=1");
+assert(url.href === "/x/y?a=1");
 assert(url.hostname === "");
 assert(url.protocol === "");
 
