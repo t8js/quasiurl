@@ -1,4 +1,4 @@
-import { QuasiURL } from ".";
+import { QuasiURL } from "./index.ts";
 
 let k = 0;
 
