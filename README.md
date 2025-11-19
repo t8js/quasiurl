@@ -4,6 +4,8 @@
 
 [![npm](https://img.shields.io/npm/v/quasiurl?labelColor=345&color=46e)](https://www.npmjs.com/package/quasiurl) ![Lightweight](https://img.shields.io/bundlephobia/minzip/quasiurl?label=minzip&labelColor=345&color=46e)
 
+Installation: `npm i quasiurl`
+
 Unlike `URL`, `QuasiURL`:
 - can have an empty `origin`, `pathname`, `hostname`, `protocol`;
 - preserves templating characters without URL-encoding them;
