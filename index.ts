@@ -1,5 +1,7 @@
 /**
- * Unlike URL, QuasiURL:
+ * `URL`-like object for URL templates.
+ * 
+ * Unlike `URL`, `QuasiURL`:
  * - can have an empty `origin`, `pathname`, `hostname`, `protocol`;
  * - preserves templating characters without URL-encoding them.
  */
