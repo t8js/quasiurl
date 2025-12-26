@@ -1,6 +1,6 @@
 # QuasiURL
 
-*`URL`-like object for URL templates*
+`URL`-like object applicable to partial URLs and URL templates
 
 [![npm](https://img.shields.io/npm/v/quasiurl?labelColor=345&color=46e)](https://www.npmjs.com/package/quasiurl) ![Lightweight](https://img.shields.io/bundlephobia/minzip/quasiurl?label=minzip&labelColor=345&color=46e)
 

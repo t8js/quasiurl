@@ -1,9 +1,10 @@
 /**
- * `URL`-like object for URL templates.
+ * `URL`-like object applicable to partial URLs and URL templates.
  *
  * Unlike `URL`, `QuasiURL`:
  * - can have an empty `origin`, `pathname`, `hostname`, `protocol`;
- * - preserves templating characters without URL-encoding them.
+ * - preserves templating characters without URL-encoding them;
+ * - doesn't implement the entire `URL` spec.
  */
 export class QuasiURL {
   _protocol = "";
