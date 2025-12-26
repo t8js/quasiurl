@@ -19,7 +19,8 @@
   },
   "keywords": [
     "url",
-    "template"
+    "partial url",
+    "url template"
   ],
   "devDependencies": {
     "@types/node": "^24.0.4"
