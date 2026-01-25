@@ -1,6 +1,6 @@
 {
   "name": "quasiurl",
-  "version": "1.1.11",
+  "version": "1.1.12",
   "description": "URL-like object applicable to relative URLs and URL templates",
   "type": "module",
   "main": "./dist/index.cjs",
