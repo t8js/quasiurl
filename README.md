@@ -1,6 +1,6 @@
 # QuasiURL
 
-`URL`-like object applicable to partial URLs and URL templates
+`URL`-like object applicable to relative URLs and URL templates
 
 Unlike `URL`, `QuasiURL`:
 - can have an empty `origin`, `pathname`, `hostname`, `protocol`;
