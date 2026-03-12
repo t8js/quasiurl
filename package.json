@@ -23,6 +23,6 @@
     "url template"
   ],
   "devDependencies": {
-    "@types/node": "^24.0.4"
+    "@types/node": "^25.5.0"
   }
 }
